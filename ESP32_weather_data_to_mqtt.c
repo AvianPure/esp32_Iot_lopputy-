@@ -18,8 +18,9 @@
 const char* ssid = "MB210-G";
 const char* password = "studentMAMK";
 
-// Add your MQTT Broker IP address
-const char* mqtt_server = "172.20.49.41"; 
+// Add your MQTT Broker IP address, example:
+//const char* mqtt_server = "192.168.1.144";
+const char* mqtt_server = "172.20.49.33";
 
 WiFiClient espClient;
 PubSubClient client(espClient);
@@ -115,7 +116,7 @@ void printAverage(Node* head) {
 }
 
 // LED Pin
-const int ledPin = 27;
+// const int ledPin = 27;
 
 void setup() {
   Serial.begin(115200);
@@ -123,7 +124,7 @@ void setup() {
   client.setServer(mqtt_server, 1883);
   client.setCallback(callback);
 
-  pinMode(ledPin, OUTPUT);
+  // pinMode(ledPin, OUTPUT);
   dht.begin();
 }
 
@@ -169,11 +170,11 @@ void callback(char* topic, byte* message, unsigned int length) {
     Serial.print("Changing output to ");
     if(messageTemp == "on"){
       Serial.println("on");
-      digitalWrite(ledPin, HIGH);
+      // digitalWrite(ledPin, HIGH);
     }
     else if(messageTemp == "off"){
       Serial.println("off");
-      digitalWrite(ledPin, LOW);
+      // digitalWrite(ledPin, LOW);
     }
   }
 }
@@ -242,11 +243,11 @@ void loop() {
     //humidity = bme.readHumidity();
     
     // Convert the value to a char array
-    // char humString[8];
-    // dtostrf(h, 1, 2, humString);
-    // Serial.print("Humidity: ");
-    // Serial.println(humString);
-    // client.publish("esp32/humidity", humString);
+    char humString[8];
+    dtostrf(h, 1, 2, humString);
+    Serial.print("Humidity: ");
+    Serial.println(humString);
+    client.publish("dht/humidity", humString);
 
     if (current >= listMaxSize) {looping=true; current = 0;}
   
