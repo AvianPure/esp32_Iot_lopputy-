@@ -32,8 +32,8 @@ sudo su
 tee se nytten ja sitten
 
 mysql
-CREATE USER 'nimi'@'%' IDENTIFIED BY 'salasana';
-GRANT ALL PRIVILEGES ON *.* TO 'nimi'@'localhost' WITH GRANT OPTION;
+CREATE USER 'arduinoantti'@'%' IDENTIFIED BY 'antti';
+GRANT ALL PRIVILEGES ON *.* TO 'arduinoantti'@'%' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 EXIT;
 

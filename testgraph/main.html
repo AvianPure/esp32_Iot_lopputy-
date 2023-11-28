@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Temperature Graph</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<div><input type="button" onclick="event.preventDefault(); get();"></div>
+<div><canvas id="myChart" width="400" height="400"></canvas></div>
+    <script>
+        // Your data array
+
+        var myChart; // Move the chart variable outside the function so it can be accessed later
+
+function drawchart(data){
+    data.reverse();
+    var canvas = document.getElementById('myChart');
+    var ctx = canvas.getContext('2d');
+    
+    // Reset the size of the canvas
+    canvas.width = canvas.parentElement.clientWidth;
+    canvas.height = canvas.parentElement.clientHeight;
+
+    // Clear the canvas
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Convert your data to an array of numbers
+    var temps = data.map(function(item) { return parseFloat(item.TempatureC); });
+
+    // Calculate min and max temperature with some padding
+    var minTemp = Math.floor(Math.min(...temps)) - 5;
+    var maxTemp = Math.ceil(Math.max(...temps)) + 5;
+
+    // If a chart already exists, destroy it
+    if (myChart) {
+        myChart.destroy();
+    }
+
+    // Create a new chart
+    myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: data.map(function(item) { return item.ID; }),
+            datasets: [{
+                label: 'Temperature',
+                data: temps,
+                fill: false,
+                borderColor: 'rgb(75, 192, 192)',
+                tension: 0.1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    min: minTemp,
+                    max: maxTemp
+                }
+            }
+        }
+    });
+}
+
+
+
+function get(){
+    var xmlhttp;
+    if (window.XMLHttpRequest) {
+        xmlhttp = new XMLHttpRequest();
+    } else {
+        // code for older browsers
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var data = JSON.parse(this.responseText); 
+            drawchart(data);
+        }
+    };
+    xmlhttp.open("GET", "api.php", true);
+    xmlhttp.send();
+}
+
+//var yeet = [{"ID":1,"TempatureC":"23.10"},{"ID":2,"TempatureC":"23.10"},{"ID":3,"TempatureC":"23.10"},{"ID":4,"TempatureC":"23.10"},{"ID":5,"TempatureC":"23.10"},{"ID":6,"TempatureC":"23.10"},{"ID":7,"TempatureC":"23.10"},{"ID":8,"TempatureC":"23.10"},{"ID":9,"TempatureC":"23.10"},{"ID":10,"TempatureC":"23.10"}];
+
+//drawchart(yeet);
+get();
+    </script>
+</body>
+</html>
+
+
