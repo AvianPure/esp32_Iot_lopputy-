@@ -1,6 +1,6 @@
-#ASENNUS OSIO
+# ASENNUS OSIO
 
-##WSL OSIO VALLINNAINEN
+## WSL OSIO VALLINNAINEN
 
 wsl --install -d ubuntu
 seuraat ne ohjeet läpi
@@ -8,7 +8,7 @@ sitten kun pääset wsl ubuntuun
 
 
 
-##UBUNTUN ALUSTUS
+## UBUNTUN ALUSTUS
 
 apt-get update 
 apt-get install apache2 php openssh-server mariadb-server
@@ -24,7 +24,7 @@ https://www.heidisql.com/
 https://winscp.net/eng/index.php
 
 
-##SQL OSIO
+## SQL OSIO
 
 
 mysql
@@ -75,7 +75,7 @@ Timestamp on expression -> current_timestamp()
 
 
 
-##NODE OSIO
+## NODE OSIO
 
 
 jos kerkesti asentaa noden aptilla
@@ -111,7 +111,7 @@ nano app.js
 
 
 
-##MQTT OSIO
+## MQTT OSIO
 
 
 mqtt asennus
@@ -128,7 +128,7 @@ mosquitto_pub -m "viesti" -t "topic"
 
 
 
-##APACHE OSIO
+## APACHE OSIO
 
 
 apache serverin tiedostot
@@ -147,7 +147,7 @@ error log
 /var/log/apache2/error.log
 
 
-##PM2 OSIO
+## PM2 OSIO
 
 
 !!HUOM!!
