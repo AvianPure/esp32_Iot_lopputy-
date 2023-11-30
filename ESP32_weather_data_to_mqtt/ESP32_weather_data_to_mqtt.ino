@@ -1,8 +1,4 @@
-/*********
-  Rui Santos
-  Complete project details at https://randomnerdtutorials.com  
-*********/
-
+// Necessary libraries
 #include <WiFi.h>
 #include <PubSubClient.h>
 #include <Wire.h>
@@ -42,7 +38,7 @@ typedef struct Node {
     struct Node* next;
 } Node;
 
-//Creates a new node and allocates memory
+// Creates a new node and allocates memory
 Node* createNode(float celsius) {
     Node* newNode = (Node*)malloc(sizeof(Node));
     if(newNode == NULL) {
@@ -56,7 +52,7 @@ Node* createNode(float celsius) {
     return newNode;
 }
 
-//Adds a node to linked list with the given temperature value
+// Adds a node to linked list with the given temperature value
 Node* addNode(Node* head, float celsius) {
     Node* newNode = createNode(celsius);
     if(head == NULL){
@@ -72,7 +68,7 @@ Node* addNode(Node* head, float celsius) {
     return head;
 }
 
-//Prints the temperature value of the newest node in the linked list
+// Prints the temperature value of the newest node in the linked list
 void printNewest(Node* head) {
     if(head == NULL) {
         Serial.println("The list is empty.");
@@ -88,7 +84,7 @@ void printNewest(Node* head) {
     Serial.println(temp->celsius);
 }
 
-//Calculates the average value of all temperature values in the nodes in the linked list.
+// Calculates the average value of all temperature values in the nodes in the linked list.
 // Publishes the value to the MQTT
 void printAverage(Node* head) {
   int count = 0;
@@ -142,7 +138,7 @@ void setup_wifi() {
 }
 
 
-//This does something maybe? 
+// This does something maybe? 
 void callback(char* topic, byte* message, unsigned int length) {
   Serial.print("Message arrived on topic: ");
   Serial.print(topic);
@@ -200,7 +196,7 @@ bool looping = false;
 Node* head = NULL;
 
 void loop() {
-  //Makes sure the ESP32 has a connection to the MQTT
+  // Makes sure the ESP32 has a connection to the MQTT
   if (!client.connected()) {
     reconnect();
   }
