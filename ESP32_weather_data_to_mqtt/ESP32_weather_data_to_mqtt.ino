@@ -6,7 +6,6 @@
 #include <WiFi.h>
 #include <PubSubClient.h>
 #include <Wire.h>
-//#include <Adafruit_BME280.h>
 #include <Adafruit_Sensor.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -19,7 +18,6 @@ const char* ssid = "MB210-G";
 const char* password = "studentMAMK";
 
 // Add your MQTT Broker IP address, example:
-//const char* mqtt_server = "192.168.1.144";
 const char* mqtt_server = "172.20.49.33";
 
 WiFiClient espClient;
@@ -28,12 +26,6 @@ long lastMsg = 0;
 char msg[50];
 int value = 0;
 
-//uncomment the following lines if you're using SPI
-/*#include <SPI.h>
-#define BME_SCK 18
-#define BME_MISO 19
-#define BME_MOSI 23
-#define BME_CS 5*/
 #include "DHT.h"
 #define DHTPIN 25     
 #define DHTTYPE DHT11
@@ -50,6 +42,7 @@ typedef struct Node {
     struct Node* next;
 } Node;
 
+//Creates a new node and allocates memory
 Node* createNode(float celsius) {
     Node* newNode = (Node*)malloc(sizeof(Node));
     if(newNode == NULL) {
@@ -63,6 +56,7 @@ Node* createNode(float celsius) {
     return newNode;
 }
 
+//Adds a node to linked list with the given temperature value
 Node* addNode(Node* head, float celsius) {
     Node* newNode = createNode(celsius);
     if(head == NULL){
@@ -78,6 +72,7 @@ Node* addNode(Node* head, float celsius) {
     return head;
 }
 
+//Prints the temperature value of the newest node in the linked list
 void printNewest(Node* head) {
     if(head == NULL) {
         Serial.println("The list is empty.");
@@ -90,10 +85,11 @@ void printNewest(Node* head) {
     }
 
     char buffer[50];
-    // sprintf(buffer, "Newest Celsius: %.2f, Timestamp: %s", temp->celsius, ctime(&(temp->timestamp)));
     Serial.println(temp->celsius);
 }
 
+//Calculates the average value of all temperature values in the nodes in the linked list.
+// Publishes the value to the MQTT
 void printAverage(Node* head) {
   int count = 0;
   float suma = 0;
@@ -101,11 +97,8 @@ void printAverage(Node* head) {
   Node* temp = head;
   while(temp != NULL) {
       
-      //Serial.println("Celsius: %.2f, Timestamp: %s", temp->celsius, ctime(&(temp->timestamp)));
       count++;
       suma += temp -> celsius;
-      //Serial.print(count);
-      // Serial.print(temp -> celsius);
       temp = temp->next;
   }
   float average = suma/count;
@@ -201,11 +194,13 @@ void reconnect() {
 int current = 0;
 float avg = 0;
 float sum = 0;
+// This limits how many nodes are in the linked list.
 int listMaxSize = 10;
 bool looping = false;
 Node* head = NULL;
 
 void loop() {
+  //Makes sure the ESP32 has a connection to the MQTT
   if (!client.connected()) {
     reconnect();
   }
@@ -226,32 +221,18 @@ void loop() {
     Serial.println(F("Failed to read from DHT sensor!"));
     return;
   }
-
-    // Temperature in Celsius
-    //temperature = bme.readTemperature();   
-    // Uncomment the next line to set temperature in Fahrenheit 
-    // (and comment the previous temperature line)
-    //temperature = 1.8 * bme.readTemperature() + 32; // Temperature in Fahrenheit
-    
     // Convert the value to a char array
-    // char tempString[8];
-    // dtostrf(t, 1, 2, tempString);
-    // Serial.print("Temperature: ");
-    // Serial.println(tempString);
-    // client.publish("dht/response", tempString);
-
-    //humidity = bme.readHumidity();
-    
-    // Convert the value to a char array
+    // prints it into console and publishes it to MQTT
     char humString[8];
     dtostrf(h, 1, 2, humString);
     Serial.print("Humidity: ");
     Serial.println(humString);
     client.publish("dht/humidity", humString);
 
+    // Once the maximum number of nodes exist, the next reading overwrites the oldest node.
     if (current >= listMaxSize) {looping=true; current = 0;}
-  
-    
+
+    // Starts overwriting nodes in the linked list
     if (looping){
       Serial.print("Average tudr: ");
       printAverage(head);
