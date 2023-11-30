@@ -1,14 +1,14 @@
-//////////////////////////////////////////////////////////
-                WSL OSIO VALLINNAINEN
-//////////////////////////////////////////////////////////
+#ASENNUS OSIO
+
+##WSL OSIO VALLINNAINEN
 
 wsl --install -d ubuntu
 seuraat ne ohjeet läpi
 sitten kun pääset wsl ubuntuun
 
-//////////////////////////////////////////////////////////
-                    ASENNUS OSIO
-//////////////////////////////////////////////////////////
+
+
+##UBUNTUN ALUSTUS
 
 apt-get update 
 apt-get install apache2 php openssh-server mariadb-server
@@ -23,9 +23,9 @@ lataat pari windows työkaluu
 https://www.heidisql.com/
 https://winscp.net/eng/index.php
 
-//////////////////////////////////////////////////////////
-                        SQL OSIO
-//////////////////////////////////////////////////////////
+
+##SQL OSIO
+
 
 mysql
 CREATE USER 'arduinoantti'@'%' IDENTIFIED BY 'antti';
@@ -74,9 +74,9 @@ lisää muut tarvittavat tietueet
 Timestamp on expression -> current_timestamp()
 
 
-//////////////////////////////////////////////////////////
-                        NODE OSIO
-//////////////////////////////////////////////////////////
+
+##NODE OSIO
+
 
 jos kerkesti asentaa noden aptilla
 sudo apt-get remove nodejs npm
@@ -110,9 +110,9 @@ tee app.js ja kopio testgraph/app.js tiedoston sisältö sinne
 nano app.js
 
 
-//////////////////////////////////////////////////////////
-                        MQTT OSIO
-//////////////////////////////////////////////////////////
+
+##MQTT OSIO
+
 
 mqtt asennus
 apt install -y mosquitto
@@ -127,9 +127,9 @@ mqtt manuaalinen viestin lähetys
 mosquitto_pub -m "viesti" -t "topic"
 
 
-//////////////////////////////////////////////////////////
-                        APACHE OSIO
-//////////////////////////////////////////////////////////
+
+##APACHE OSIO
+
 
 apache serverin tiedostot
 /var/www/html
@@ -146,9 +146,9 @@ access log
 error log
 /var/log/apache2/error.log
 
-//////////////////////////////////////////////////////////
-                        PM2 OSIO
-//////////////////////////////////////////////////////////
+
+##PM2 OSIO
+
 
 !!HUOM!!
 pitää olla cd sama kansio kuin minne asensit mqtt mariadb
