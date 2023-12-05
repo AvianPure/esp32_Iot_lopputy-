@@ -1,0 +1,76 @@
+<mxfile host="app.diagrams.net" modified="2023-11-30T11:10:06.098Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 Edg/119.0.0.0" etag="-KGtlqK0N9GpAbrGkuEp" version="22.1.5" type="device">
+  <diagram name="Page-1" id="uNKKUBxE70FMG_cPeyQl">
+    <mxGraphModel dx="678" dy="548" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Qe6NVmRRB63cVEmic5_Q-1" value="ESP32" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="1">
+          <mxGeometry x="130" y="170" width="100" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="Qe6NVmRRB63cVEmic5_Q-2" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="Qe6NVmRRB63cVEmic5_Q-1">
+          <mxGeometry x="45" y="60" width="10" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Qe6NVmRRB63cVEmic5_Q-12" value="" style="shape=umlDestroy;whiteSpace=wrap;html=1;strokeWidth=3;targetShapes=umlLifeline;" vertex="1" parent="Qe6NVmRRB63cVEmic5_Q-1">
+          <mxGeometry x="35" y="170" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Qe6NVmRRB63cVEmic5_Q-3" value="Lämpötila arvo" style="html=1;verticalAlign=bottom;startArrow=oval;startFill=1;endArrow=block;startSize=8;curved=0;rounded=0;" edge="1" parent="1" target="Qe6NVmRRB63cVEmic5_Q-2">
+          <mxGeometry width="60" relative="1" as="geometry">
+            <mxPoint x="70" y="240" as="sourcePoint" />
+            <mxPoint x="170" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Qe6NVmRRB63cVEmic5_Q-5" value="MQTT&lt;br&gt;Broker" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="1">
+          <mxGeometry x="250" y="170" width="100" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="Qe6NVmRRB63cVEmic5_Q-7" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="Qe6NVmRRB63cVEmic5_Q-5">
+          <mxGeometry x="45" y="120" width="10" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Qe6NVmRRB63cVEmic5_Q-13" value="" style="shape=umlDestroy;whiteSpace=wrap;html=1;strokeWidth=3;targetShapes=umlLifeline;" vertex="1" parent="Qe6NVmRRB63cVEmic5_Q-5">
+          <mxGeometry x="35" y="210" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Qe6NVmRRB63cVEmic5_Q-6" value="MQTT Topic" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="185" y="300" as="sourcePoint" />
+            <mxPoint x="295" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Qe6NVmRRB63cVEmic5_Q-8" value="Node.Js" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="1">
+          <mxGeometry x="410" y="170" width="100" height="370" as="geometry" />
+        </mxCell>
+        <mxCell id="Qe6NVmRRB63cVEmic5_Q-9" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="Qe6NVmRRB63cVEmic5_Q-8">
+          <mxGeometry x="45" y="180" width="10" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="Qe6NVmRRB63cVEmic5_Q-19" value="" style="shape=umlDestroy;whiteSpace=wrap;html=1;strokeWidth=3;targetShapes=umlLifeline;" vertex="1" parent="Qe6NVmRRB63cVEmic5_Q-8">
+          <mxGeometry x="35" y="350" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Qe6NVmRRB63cVEmic5_Q-10" value="MQTT Topic Subscription" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" edge="1" parent="1" target="Qe6NVmRRB63cVEmic5_Q-9">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="305" y="360" as="sourcePoint" />
+            <mxPoint x="400" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Qe6NVmRRB63cVEmic5_Q-14" value="Mariadb" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="1">
+          <mxGeometry x="540" y="170" width="100" height="360" as="geometry" />
+        </mxCell>
+        <mxCell id="Qe6NVmRRB63cVEmic5_Q-17" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="Qe6NVmRRB63cVEmic5_Q-14">
+          <mxGeometry x="45" y="240" width="10" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Qe6NVmRRB63cVEmic5_Q-20" value="" style="shape=umlDestroy;whiteSpace=wrap;html=1;strokeWidth=3;targetShapes=umlLifeline;" vertex="1" parent="Qe6NVmRRB63cVEmic5_Q-14">
+          <mxGeometry x="35" y="350" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Qe6NVmRRB63cVEmic5_Q-15" value="SQL kysely" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="465" y="420" as="sourcePoint" />
+            <mxPoint x="585" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Qe6NVmRRB63cVEmic5_Q-18" value="SQL kysely&amp;nbsp;&lt;br&gt;OK" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="585" y="470" as="sourcePoint" />
+            <mxPoint x="465" y="470" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
